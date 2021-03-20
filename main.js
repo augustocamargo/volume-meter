@@ -28,7 +28,7 @@ var WIDTH=500;
 var HEIGHT=50;
 var rafID = null;
 
-window.onload = function() {
+function fire() {
 
     // grab our canvas
 	canvasContext = document.getElementById( "meter" ).getContext("2d");
@@ -98,6 +98,7 @@ function drawLoop( time ) {
     // draw a bar based on the current volume
     canvasContext.fillRect(0, 0, meter.volume*WIDTH*1.4, HEIGHT);
 
+    document.getElementById("volume").innerHTML = meter.volume*1000;
     // set up the next visual callback
     rafID = window.requestAnimationFrame( drawLoop );
 }
